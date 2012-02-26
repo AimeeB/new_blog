@@ -1,0 +1,31 @@
+<ul id="home-gallery">
+	
+	<% thumbimages = Dir.glob("app/assets/images/gallery-thumb/*").to_a %>
+	   	
+	  
+		<li class="grid_4 alpha">
+		<%= link_to image_tag(("#{thumbimages[0]}").gsub("app/assets/images/", "")), past_events_path %>
+		<%= link_to past_events_path, :class => "tooltip" do %>		
+		<div class="blue box"><p>Paddling the Charles River<br />July 24, 2011<br /><span class="right">more past events >></span></p></div>
+		<% end %>
+		</li>
+
+		<li class="grid_4">
+		<%= link_to image_tag(("#{thumbimages[1]}").gsub("app/assets/images/", "")), past_events_path %>
+		<%= link_to past_events_path, :class => "tooltip" do %>		
+		<div class="blue box"><p>Charles River Conservation<br />April 5, 2011<br /><span class="right">more past events >></span></p></div>
+		<% end %>
+		</li>
+		
+		<li class="grid_4 omega">
+		<%= link_to image_tag(("#{thumbimages[2]}").gsub("app/assets/images/", "")), past_events_path %>
+		<%= link_to past_events_path, :class => "tooltip" do %>		
+		<div class="blue box"><p>City Year Serve-a-thon<br />May 26, 2010<br /><span class="right">more past events >></span></p></div>		
+		<% end %>
+</li>
+
+		
+</ul>
+	
+	
+

@@ -1,8 +1,39 @@
 Blog::Application.routes.draw do
-  resources :posts
+  get "admin/past_events"
 
-  root :to => "home#index"
+  get "pages/get_involved"
 
+  get "pages/past_events"
+
+  get "past_events/get_involved"
+
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
+  match '/events', :to => "pages#events"
+  
+  match '/past_events', :to => "pages#past_events"
+  
+  match '/get_involved', :to => "pages#get_involved"
+  
+  match '/blog', :to => "pages#blog"
+  
+  match '/about', :to => "pages#about"
+    
+  # match '/01-default', :to => "pages#01-default"
+  
+  # match '/events', :to => "pages#events"
+
+  root :to => "pages#home"
+  
+  scope "admin", :as => 'admin' do
+              root :to => 'admin#dashboard#index'
+              resources :events
+              resources :blog
+              resources :past_events
+          end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

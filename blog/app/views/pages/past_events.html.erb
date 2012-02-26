@@ -1,0 +1,18 @@
+<ul id="Gallery">
+	
+	<%= render 'photoSwipeInitialize.js', :content_type => 'application/js'%>
+	
+	<% @galleryimages = Dir.glob("app/assets/images/gallery-full/*") %>
+	<% @thumbimages = Dir.glob("app/assets/images/gallery-thumb/*") %>
+	   	<% for thumbimage in @thumbimages %>
+		<% for image in @galleryimages %>		 
+	  
+		<li class="grid_4 alpha">
+		<%= link_to image_tag(("#{thumbimage}").gsub("app/assets/images/", "")), html_escape("#{image}").gsub("app/assets/images/", "/assets/") %>
+		</li>
+				
+		
+		<% end %>
+		<% end %>
+		
+</ul>
